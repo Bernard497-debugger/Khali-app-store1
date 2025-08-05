@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head><title>Khali App Store</title></head>
+<body>
+    <h1>App Store</h1>
+    {% for app in apps %}
+    <div>
+        <img src="/download/{{ app.image }}" width="100"><br>
+        <strong>{{ app.name }}</strong><br>
+        <p>{{ app.description }}</p>
+        <a href="/download/{{ app.filename }}">Download</a>
+    </div>
+    <hr>
+    {% endfor %}
+</body>
+</html>
