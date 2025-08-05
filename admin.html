@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head><title>Admin Panel</title></head>
+<body>
+    <h1>Upload App</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input name="name" placeholder="App Name" required><br>
+        <textarea name="description" placeholder="Description" required></textarea><br>
+        <input type="file" name="file" required><br>
+        <input type="file" name="image" required><br>
+        <button type="submit">Upload</button>
+    </form>
+
+    <h2>Uploaded Apps</h2>
+    {% for app in apps %}
+    <div>
+        <img src="/download/{{ app.image }}" width="100"><br>
+        <strong>{{ app.name }}</strong><br>
+        <p>{{ app.description }}</p>
+        <a href="/download/{{ app.filename }}">Download</a><br>
+        <a href="/delete/{{ loop.index0 }}" style="color:red">Delete</a>
+    </div>
+    <hr>
+    {% endfor %}
+</body>
+</html>
